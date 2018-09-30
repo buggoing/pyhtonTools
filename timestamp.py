@@ -11,6 +11,16 @@ def stringToTimestamp(timesString):
   timestamp = time.mktime(time.strptime(timesString, '%Y-%m-%d %H:%M:%S'))
   return timestamp
 
+def calculateTimeDiffDays(startTimeString, endTimeString):
+    startTime = datetime.datetime.strptime(startTimeString, "%Y-%m-%d")
+    endTime = datetime.datetime.strptime(endTimeString, "%Y-%m-%d")
+    # print startTime
+    # print endTime
+    diff = endTime - startTime
+    # print diff.days
+    # print dir(diff)
+    return diff.days
+
 if __name__ == '__main__':
   paramer = sys.argv[2]
   opcode = sys.argv[1]
