@@ -13,7 +13,7 @@ def draw():
     # plt.plot(y1, 'b-',  label='y=x*x')
     plt.plot(y2, label='y=sin(x)')
     plt.plot(y3, 'r*', label='y=sqrt(x)')
-    
+    plt.grid()
     plt.legend()
     plt.show()
 

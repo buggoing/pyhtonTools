@@ -18,6 +18,7 @@ photoFolder = os.path.dirname(os.path.realpath(__file__))
 @app.route("/test")
 def test():
     print('get test')
+    time.sleep(0.1)
     return "Hello World! from gbot pic server"
 
 @app.route("/filephoto")
