@@ -17,4 +17,16 @@ def draw():
     plt.legend()
     plt.show()
 
-draw()
+# draw()
+
+xList = range(1, 23)
+
+y = [math.sqrt((x**3 + 7*x + 11) % 23) for x in xList]
+
+def drawElliptic():
+    plt.plot(xList, y)
+    plt.grid()
+    plt.show()
+
+drawElliptic()
+
