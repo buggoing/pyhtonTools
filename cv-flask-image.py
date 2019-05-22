@@ -3,10 +3,10 @@ import time
 import cv2
 from flask import Flask
 from flask import Response, jsonify
-from gevent import monkey
+# from gevent import monkey
 from gevent.pywsgi import WSGIServer
 
-monkey.patch_all()
+# monkey.patch_all()
 app = Flask(__name__)
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
@@ -77,6 +77,6 @@ def photo_n():
         return jsonify(result)
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=8088)
+    app.run(host='0.0.0.0', port=8088)
     http_server = WSGIServer(('', 8088), app)
     http_server.serve_forever()

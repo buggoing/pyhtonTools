@@ -11,4 +11,5 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 while True:
     starttime = time.time()
     ret, frame = cap.read()
+    cv2.imwrite('photo.png', frame)
     print('elapse: ', time.time() - starttime)
