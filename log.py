@@ -47,12 +47,27 @@ testRthandler.setFormatter(formatter)
 
 mylogger.addHandler(trhandler)
 
+def getLoggerWithFilename(filename='log.log'):
+    filepath = os.path.join(dir_path, "logs/" + filename)
+
+    logger = logging.getLogger(filename)
+    logger.setLevel(logging.WARN)
+    trh = logging.handlers.TimedRotatingFileHandler(filepath, when='d', encoding='utf-8', interval=1, backupCount=30)
+    trh.suffix = "%Y-%m-%d.log"
+    # trh.suffix = "%Y-%m-%d_%H-%M-%S.log"
+    trh.setLevel(logging.WARN)
+    trh.setFormatter(formatter)
+    logger.addHandler(trh)
+    return logger
+
 def test():
     res = {'res': {'msg': u'证券行业', 'code': 0}, 'data': {u'code': 0}}
     res = json.dumps(res, encoding="UTF-8", ensure_ascii=False)
+    logger = getLoggerWithFilename('new_logger.log')
     while True:
         mylogger.info(u'中文')
         mylogger.info(str(u'中文2'))
+        logger.info('test')
         mylogger.info(res)
         # mylogger.info("返回code不是200")
         time.sleep(1)
