@@ -27,7 +27,7 @@ app = Flask(__name__, static_url_path=dir_path)
 @app.route('/')
 def index():
     print('get index: ', time.time())
-    f = open('/Users/yangyou/Downloads/zkb-2.jpg')
+    f = open('./test.jpg')
     content = f.read()
     base64_content = base64.b64encode(content)
     imgdata = 'data:image/jpeg;base64,' + base64_content
